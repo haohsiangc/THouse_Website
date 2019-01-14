@@ -11,6 +11,8 @@
             <div class="row">
                 <div class="col-md-12" data-aos="fade-up" data-aos-duration="500">
                     <form>
+                        
+                        <!-- basic information -->
                         <div class="form-group row">
                             <div class="col-sm-2">
                                 <input type="text" class="form-control" placeholder="你的名字" required>
@@ -22,7 +24,9 @@
                                 <input type="text" class="form-control" placeholder="電子郵件" required>
                             </div>
                         </div>
-                    
+                        <!-- End basic information -->
+                        
+                        <!-- member address -->
                         <div class="form-group row">
                             <div class="col-sm-2">
                                 <select class="form-control" required>
@@ -58,6 +62,9 @@
                                 <input type="text" class="form-control" placeholder="路名/街道/巷弄/戶號/樓層">
                             </div>
                         </div>
+                        <!-- End member address -->
+                        
+                        <!-- submit & reset button -->
                         <div class="form-group row">
                             <div class="col-sm-2">
                                 <button type="submit" class="btn btn-primary btn-lg">加入梯浩室！</button>
@@ -66,7 +73,8 @@
                                 <button type="reset" class="btn btn-secondary btn-lg">啊！填錯了！</button>
                             </div>
                         </div>
-                        
+                        <!-- End submit & reset button -->
+                    
                     </form>
                 </div>
             </div>
