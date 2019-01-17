@@ -1,5 +1,5 @@
 <?php
-     $addr = $_POST['city'].$_POST['county'].$_POST['addr'];
+    $addr = $_POST['city'].$_POST['county'].$_POST['addr'];
 
     include("connMysql.php");
     if(!mysqli_select_db($db_link, "teahouse")){
