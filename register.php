@@ -12,8 +12,7 @@
     $sql_query .= "'".$addr."',";
     $sql_query .= "'".$_POST["mPaswd"]."')";
     if(mysqli_query($db_link,$sql_query)){
-        //echo "data inserted"."<br>";
-        echo '<script type="text/javascript"> alert("註冊成功!"); location.href="./index.html"; </script>';
+        echo '<script type="text/javascript"> alert("註冊成功!"); location.href="./index.php"; </script>';
     }
     else{
         echo "Error inserting database:" .mysqli_error();
