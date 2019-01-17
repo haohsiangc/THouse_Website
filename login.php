@@ -15,9 +15,10 @@
         $count = mysqli_num_rows($result);
         if($count == 1){
             $_SESSION['login_user'] = $email;
-            header("location:index.html");
+            $_SESSION['loggedin'] = true;
+            header("location:index.php");
         } else{
-            echo "invalid Email or Password";
+            echo '<script type="text/javascript"> alert("您未註冊，請先註冊!"); location.href="./signup.php"; </script>';
         }
     }
 ?>
