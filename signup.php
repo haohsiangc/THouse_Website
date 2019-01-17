@@ -14,7 +14,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="./img/portfolio/fullsize/logo.png" alt="T.House"
+                <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="./img/portfolio/fullsize/logo.png" alt="T.House"
                         width="70px" height="60px"> T.House</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,25 +23,37 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">關於我們</a>
+                            <a class="nav-link js-scroll-trigger" href="./index.php">關於我們</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#services">Menu</a>
+                            <a class="nav-link js-scroll-trigger" href="reservation.php">店內預約</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">會員專區</a>
+                            <a class="nav-link js-scroll-trigger" href="pre-order.php">商品訂購</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">店內預約</a>
+                            <a class="nav-link js-scroll-trigger" href="index.php">聯絡我們</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#about">商品訂購</a>
+                            <span class="nav-link js-scroll-trigger text-white">
+                                <?php
+                                session_start();
+                                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+                                    include("connMysql.php");
+                                    if(!mysqli_select_db($db_link, "teahouse")){
+                                        die('couldnt connect database:' .mysqli_error());
+                                    }
+                                    $email = $_SESSION['login_user'];
+                                    $sql = "SELECT mName FROM member WHERE mEmail IN (SELECT mEmail FROM member WHERE mEmail = '$email')";
+                                    $result = mysqli_query($db_link,$sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo "嗨".$row['mName'];
+                                }
+                                ?>
+                            </span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#portfolio">Photo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#contact">聯絡我們</a>
+                            <a class="nav-link js-scroll-trigger" href="logout.php">登出</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +61,7 @@
         </nav>
 
         <div class="page-content container py-5 main">
-            <form action="add.php" method="POST">
+            <form action="register.php" method="POST">
                 
                 <!-- basic information -->
                 <div class="form-group row">
