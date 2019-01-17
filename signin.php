@@ -49,13 +49,13 @@
         </nav>
 
         <div class="page-content container py-5 main">
-            <form>
+            <form action="login.php" method="POST">
 
                 <!-- enter e-mail section -->
                 <div class="form-group row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <input type="email" class="form-control " placeholder="電子信箱">
+                        <input type="email" class="form-control" name="mEmail" value="" placeholder="電子信箱">
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="form-group row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" placeholder="密碼">
+                        <input type="password" class="form-control" name="mPaswd" value="" placeholder="密碼">
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
